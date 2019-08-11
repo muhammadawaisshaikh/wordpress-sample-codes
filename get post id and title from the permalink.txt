@@ -1,0 +1,8 @@
+<a href="<?php the_permalink($post_id38); ?>" class="portfolio_item">
+
+
+
+
+$url = getenv('HTTP_REFERER');
+$title = get_the_title(url_to_postid($url)); 
+$id = get_the_id(url_to_postid($url)); 

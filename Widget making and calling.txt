@@ -1,0 +1,21 @@
+	//always make the widget under functions.php file in Widget section
+
+	register_sidebar( array(
+		'name' => __( 'Footer Text', 'twentyten' ),
+		'id' => 'footer-text',
+		'description' => __( 'An optional widget area for your site footer.', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	
+	}
+	/** Register sidebars by running twentyten_widgets_init() on the widgets_init hook. */
+	add_action( 'widgets_init', 'twentyten_widgets_init' );
+
+
+
+	// calling the widget in front-end
+	
+	<?php if(dynamic_sidebar('footer-text'));?>

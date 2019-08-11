@@ -1,0 +1,25 @@
+<?php
+$wp_query->query(array( 'post_type' => 'blogs', 'posts_per_page' => 2,'paged' => $paged,'order'=>'DESC' ));
+if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+
+
+<?php echo the_title(); ?>
+
+
+<a href="<?php the_permalink(); ?>" >
+
+<?php the_post_thumbnail( 'medium' ); ?>
+
+<?php the_time('F j, Y'); ?>
+
+<?php $content=get_the_content(); echo substr($content,0, 300); ?>
+
+<?php $content=get_the_content(); echo substr($content); ?>
+
+<a href="<?php the_permalink(); ?>" >Read More ... </a>
+
+
+
+	<?php endwhile; ?>
+        <?php if (function_exists("pagination")) { pagination($additional_loop->max_num_pages);} ?>
+        <?php endif; ?>

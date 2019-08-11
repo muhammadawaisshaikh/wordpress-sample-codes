@@ -1,0 +1,15 @@
+		<?php $missionID=79; ?>
+
+ 		<?php 
+			if (has_post_thumbnail($missionID) ):
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id($missionID), 'single-post-thumbnail' );
+			endif;
+
+			$image_URI = $image[0];
+		?>
+
+		<?php echo "<img src='".$image[0]."'>"; ?>
+		
+		<?php echo get_the_title( $missionID ); ?>
+
+		<?php echo apply_filters('the_content', get_post_field('post_content', $missionID)); ?> 
